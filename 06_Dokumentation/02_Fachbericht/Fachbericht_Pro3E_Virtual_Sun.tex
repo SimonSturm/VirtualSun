@@ -1,0 +1,56 @@
+\documentclass[a4paper]{fhnwreport}
+\usepackage{pdfpages}
+
+\graphicspath{{./graphics/}{./Anhang/}}	
+
+\title{Fachbericht Virtual Sun}
+\author{HS15 Pro3E Team n}
+\date{Windisch, \today}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{2cm}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.80\textwidth]{virtualsun-logo.jpg}
+	\label{fig:virtualsun-logo}
+\end{figure}
+\vfill
+\textsc{
+\begin{tabbing}
+Auftraggeber: \hspace{4em} \=   Hans Gysin \\[2ex]
+Betreuer:  \> Matthias Meier (Controllerprogrammierung) \\ \> Peter Ganzmann (Analogtechnik) \\ \> Bonnie Domenghino (Englisch) \\ \> Anita Gertiser (Kommunikation) \\[2ex]
+Gruppe:  \>  HS15 pro3E Team n \\[2ex]
+Teammitglieder:  \> Simonetta Sturm (Projektleiter) \\ \> Yanick Frei \\ \> Claudius Jörg \\[2ex]
+Studiengang: \> Elektro- und Informationstechnik
+\end{tabbing}}
+\vfill
+\hbox{}
+\clearpage
+
+%\includepdf[pages=-]{Abstract.pdf}
+\includepdf{Lastenheft_EIT_P3_15HS.pdf} 
+
+\tableofcontents	
+\setcounter{page}{1}
+\clearpage
+
+\include{Einleitung}
+\include{Theoretische_Grundlagen_Solarzellen}
+\include{Theoretische_Grundlagen_Mathematik}
+\include{Hardware_Controller}
+\include{Hardware_Messschaltung}
+\include{Hardware_Regler}
+\include{Hardware_Bedienung}
+\include{Software_Regelung}
+\include{Software_Bedienung}
+\include{Validierung_Software}
+\include{Validierung_Hardware}
+\include{Schlusswort}
+\begin{appendix}
+\include{Anhang}
+\end{appendix}
+
+\end{document}
