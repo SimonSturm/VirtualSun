@@ -1,0 +1,2 @@
+Einstellbarer DC/DC, 500mv-24V, 3.5A
+wird von uC geregelt

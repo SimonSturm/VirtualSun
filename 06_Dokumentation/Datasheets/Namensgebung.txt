@@ -1,0 +1,2 @@
+Alle Datasheets in separatem Ordner abspeichern, Der Name sollte dem Bauteil entsprechen.
+Zusätzlich sollte ein .txt in genanntem Ordner erstellt werden, der die Funktion und die Verwendung des Bausteins kurz erläutert

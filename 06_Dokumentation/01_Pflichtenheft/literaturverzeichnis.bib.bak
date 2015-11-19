@@ -1,0 +1,124 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF8
+
+
+@Booklet{bate,
+  Title                    = {Spezialgebiete der {Steuer}- und {Regelungstechnik}},
+  Author                   = {B. Bate},
+  Year                     = {2009},
+
+  Institution              = {FH Dortmund},
+  Owner                    = {Martin},
+  Timestamp                = {2015.05.08}
+}
+
+@Booklet{bengfort,
+  Title                    = {Amplitudengang und Phasengang im Bode-Diagramm},
+  Author                   = {Wolfgang Bengfort},
+  Month                    = {September},
+  Year                     = {2009},
+
+  Owner                    = {Denis Stampfli},
+  Timestamp                = {03.03.2015},
+  Url                      = {http://et-tutorials.de/7507/amplitudengang-und-phasengang-im-bode-diagramm/}
+}
+
+@Booklet{jenniRegel,
+  Title                    = {Regelungstechnik Grundlage, Lineare Regelungen-Übertragungsfunktion},
+  Author                   = {Felix Jenni},
+  Month                    = {Frühling},
+  Note                     = {FHNW Windisch},
+  Year                     = {2015},
+
+  Owner                    = {Yohannes Measho},
+  Timestamp                = {04.03.2015}
+}
+
+@Book{meyerSignal,
+  Title                    = {Signalverarbeitung - Analoge System der Frequenzgang und die Übertragungsfunktion},
+  Author                   = {Marthin Meyer},
+  Publisher                = {Vieweg \& Sohn Verlagsgesellschaft mbH, Braunschweig, Wiesbaden},
+  Year                     = {2000},
+  Edition                  = {2. durchgesehene Auflage},
+  Month                    = {Oktober},
+
+  Owner                    = {Yohannes Measho},
+  Timestamp                = {04.03.2015}
+}
+
+@Book{rizzonio,
+  Title                    = {Principles and Applications of Electrical Engineering},
+  Author                   = {Giorgio Rizzonio},
+  Publisher                = {McGraw-Hill},
+  Year                     = {2003},
+  Edition                  = {fourth Edition},
+
+  Owner                    = {Yohannes Measho},
+  Timestamp                = {04.03.2015}
+}
+
+@Electronic{rnwissen,
+  Title                    = {Regelungstechnik},
+  Author                   = {RN-Wissen},
+  HowPublished             = {http://rn-wissen.de/wiki/index.php/Datei:Regelkreis4.png (08.05.2015)},
+
+  Owner                    = {Martin},
+  Timestamp                = {2015.05.08}
+}
+
+@Booklet{solenicki,
+  Title                    = {Mathematisches {Labor} mlab - {Systemidentifikation} mit {Hilfe} der {Schrittantwort}},
+  Author                   = {D. Solenicki and Y. Bürgi},
+  Month                    = {November},
+  Note                     = {{FHNW}},
+  Year                     = {2013},
+
+  Owner                    = {Claudius Jörg},
+  Pages                    = {10, 11},
+  Timestamp                = {04.03.2015}
+}
+
+@Book{unbehauen,
+  Title                    = {Regelungstechnik I},
+  Author                   = {Heinz Unbehauen},
+  Publisher                = {Friedr. Vieweg \& Sohn Verlagsgesellschaft mbH},
+  Year                     = {1997},
+  Edition                  = {15. überarbeitete und erweiterte Auflage},
+
+  Comment                  = {07.10.2014},
+  Owner                    = {Martin Moser},
+  Timestamp                = {03.03.2015},
+  Url                      = {http://de.wikipedia.org/wiki/Frequenzgang}
+}
+
+@Book{huberLaplace,
+  Title                    = {Laplace-Transformation für Ingenieure der Elektrotechnik - Übertragungsfunktion von Netzwerken},
+  Author                   = {Huber Weber},
+  Publisher                = {B.G.Teubner, Stuttgart, Leipzig, Wiesbaden},
+  Year                     = {2013},
+  Edition                  = {7.überarbeitete und ergänzte Auflage},
+  Month                    = {März},
+
+  Owner                    = {Yohannes Measho},
+  Timestamp                = {04.03.2015}
+}
+
+@Booklet{zellwegerpha,
+  Title                    = {Phasengang-{Methode}},
+  Author                   = {J. Zellweger},
+  Year                     = {unveröffent. Vorlesungsskript, ohne Jahr},
+
+  Institution              = {{FHNW}},
+  Owner                    = {Martin},
+  Timestamp                = {2015.05.08}
+}
+
+@Booklet{zellwegerregel,
+  Title                    = {Regelkreise und {Regelungen}},
+  Author                   = {J. Zellweger},
+  Year                     = {unveröffent. Vorlesungsskript, ohne Jahr},
+
+  Owner                    = {Martin},
+  Timestamp                = {2015.05.08}
+}
+
