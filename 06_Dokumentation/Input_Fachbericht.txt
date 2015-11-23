@@ -1,0 +1,33 @@
+Vorgehen und Aufbau
+
+	-Richtet sich an Studierende, generell interessierte Personen
+	-Es muss nachvollziebahr sein für Personen mit Kenntnis in Elektronik
+	-Dient der Wissensvermittlung
+	-Nachvollziehbar hinsichtlich Entwicklung
+	-Kann für Weiterentwicklung Produkt verwendet werden
+
+Fachbericht enthält:
+	-Grundlagen
+	-Lösungskonzept
+	-Berechnungen, Dimensionierungen (evtl. Anhang)
+	-zeigt auf wie Anforderunge des Pflichtenheftes erfüllt sind
+	-soll Bild des Gerätes ethalten (innen, aussen)	
+
+(Grundlagen Step Down nicht erklären, referenzieren)
+
+Disposition
+	-Inwiefern ist Sachverhalt relevant
+	-Aus welchen Gründen
+
+Was ist das Teilroblem?
+Was wurde gemacht, um die Aufgabe zu lösen?
+Was ist rausgekommen?
+Was schliessen sie daraus?
+
+10-15 Seiten
+
+Wenn Produkt funktioniert, dann wie beschrieben vorgehen.
+
+Wenn Produkt nicht funktioniert, begründen weshalb es nicht funktioniert, eher 
+ein Bericht was alles Versucht wurde (Lösungsansätze auflisten und erläutern), einkreisen
+woran es lag.
