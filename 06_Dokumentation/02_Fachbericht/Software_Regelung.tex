@@ -1,12 +1,12 @@
 \section{Software}
 
 \subsection{Regelung}
-Die Software zur Regelung beinhaltet zwei Integer-Arrays ,$sauber[]$ und $verschmutzt[]$, welche mittels der Headerdatei $LookUpTable.h$ geladen werden. In diesen beiden Arrays sind die Spannungswerte in Millivolt für die saubere und die schmutzige Solarzelle hinterlegt, jeweils ein Wert alle 10 Milliampere. Der Index entspricht dabei dem jeweiligen Stromwert geteilt durch 10. \newline
+Die Software zur Regelung beinhaltet zwei Integer-Arrays, $sauber[]$ und $verschmutzt[]$, welche mittels der Headerdatei $LookUpTable.h$ geladen werden. In diesen beiden Arrays sind die Spannungswerte in Millivolt für die saubere und die schmutzige Solarzelle hinterlegt, jeweils ein Wert alle 10 Milliampere. Der Index entspricht dabei dem jeweiligen Stromwert geteilt durch 10. \newline
 Die Werte dazu wurden mittels eines Matlab-Files erstellt, das im Anhang angehängt ist. Die Werte entsprechen dabei der in Formel (\ref{eq:kennlinie}) berechneten Kennlinie.
 
 Im Programm selbst gibt es die Integer $prozent$, welche die aktuelle Bestrahlungsstärke darstellt, und $regelwert$, welcher angibt, wie stark der Regler korrigieren soll. \newline
 In der Funktion $main$ existieren ausserdem die Integer $messU$ für die gemessene Spannung am Spannungsteiler, $istU$ für die berechnete Ausgangsspannung, $sollU$ für den zum Stromwert passenden Spannungswert, $messI$ für die gemessene Spannung am Eingang des Controllers für die Strommessung und $istI$, worin der berechnete Ausgangsstrom gespeichert ist. Sämtliche Variabeln repräsentieren dabei die Werte in Millivolt bzw. Milliampere. \newline
-Zur Realisierung der Umschaltung zwischen sauber und verschmutzt sind ausserdem noch der Integer $modus$ sowie die beiden hinterlegten \colorbox{red}{Werte?} $MODUSSAUBER$ und $MODUSVERSCHMUTZT$ vorhanden.
+Zur Realisierung der Umschaltung zwischen sauber und verschmutzt ist ausserdem noch der Integer $modus$ vorhanden. Dieser kann die beiden Zustände $MODUSSAUBER$ (entsprechend einer 1) und $MODUSVERSCHMUTZT$ (entsprechend einer 0) annehmen.
 
 Die Routine zur Regelung wird mittels einem Vergleich ausgeführt, welcher sich alle \colorbox{red}{1ms (eventuell nachträglich anpassen} wiederholt. Dabei werden zuerst aus den gemessenen Werten $messU$ und $messI$ die aktuellen Werte am Ausgang des Gerätes $istU$ und $istI$ berechnet. \newline
 Anschliessend wird der Wert $istI$ mit der Beleuchtungsstärke $prozent$ verrechnet, um die Kennlinie entsprechend zu verschieben. Wie das genau funktioniert ist im Kapitel \colorbox{red}{Verweis auf Matheteil} ausführlich beschrieben. \newline

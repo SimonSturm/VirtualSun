@@ -1,1 +1,110 @@
-\section{Anhang}
+\section{Verifizierung Messaufbau}
+
+\subsection{Spannungsmessung}
+Die Spannung wird mittels eines Spannungsteilers aus zwei Widerstände bemessen. Die Toleranz beider Widerstände beträgt $\pm$ 1\%, im schlechtesten Fall ist ein Widerstand am oberen Ende der Toleranz, der andere am unteren Ende (beispielsweise 39.39k$\Omega$ und 9.9k$\Omega$ anstelle von 39k$\Omega$ und 10k$\Omega$). Der maximal mögliche Fehler beträgt damit 2.02\%. \newline
+Um diesen Fehler auszuschliessen, wurde die Spannung am Ausgang des Spannungsteilers bei der grössten und der kleinsten möglichen Ausgangsspannung gemessen und die Differenz als +101.8mV pro 0.5V Ausgangsspannungserhöhung bestimmt. Mit den in Tabelle \ref{tab:messU} folgenden Messreihe wurde die Genauigkeit dieser Schaltung verifiziert. Die Werte über 14.0V dienen dabei nur noch zur Kontrolle, ob die Genauigkeit auch bei höheren Spannungen noch vorhanden ist.
+\begin{table}
+\centering
+\begin{tabular}{|r|r|r|r|}
+	\hline
+	\textbf{Ausgangsspannung} & \textbf{Messwert $messU$} & \textbf{Differenz} & \textbf{Fehler} \\ \hline
+	0.0V & 0mV & - & 0.0mV \\ \hline
+	0.5V & 102mV & 102mV & +0.2mV \\ \hline
+	1.0V & 204mV & 102mV & +0.2mV \\ \hline
+	1.5V & 306mV & 102mV & +0.2mV \\ \hline
+	2.0V & 408mV & 102mV & +0.2mV \\ \hline
+	2.5V & 509mV & 101mV & -0.8mV \\ \hline
+	3.0V & 611mV & 102mV & +0.2mV \\ \hline
+	3.5V & 713mV & 102mV & +0.2mV \\ \hline
+	4.0V & 815mV & 102mV & +0.2mV \\ \hline
+	4.5V & 916mV & 101mV & -0.8mV \\ \hline
+	5.0V & 1018mV & 102mV & +0.2mV \\ \hline
+	5.5V & 1120mV & 102mV & +0.2mV \\ \hline
+	6.0V & 1222mV & 102mV & +0.2mV \\ \hline
+	6.5V & 1324mV & 102mV & +0.2mV \\ \hline
+	7.0V & 1425mV & 101mV & -0.8mV \\ \hline
+	7.5V & 1526mV & 101mV & -0.8mV \\ \hline
+	8.0V & 1628mV & 102mV & +0.2mV \\ \hline
+	8.5V & 1731mV & 103mV & +1.2mV \\ \hline
+	9.0V & 1833mV & 102mV & +0.2mV \\ \hline
+	9.5V & 1935mV & 102mV & +0.2mV \\ \hline
+	10.0V & 2036mV & 101mV & -0.8mV \\ \hline
+	10.5V & 2138mV & 102mV & +0.2mV \\ \hline
+	11.0V & 2240mV & 102mV & +0.2mV \\ \hline
+	11.5V & 2342mV & 102mV & +0.2mV \\ \hline
+	12.0V & 2444mV & 102mV & +0.2mV \\ \hline
+	12.5V & 2545mV & 101mV & -0.8mV \\ \hline
+	13.0V & 2647mV & 102mV & +0.2mV \\ \hline
+	13.5V & 2749mV & 102mV & +0.2mV \\ \hline
+	14.0V & 2851mV & 102mV & +0.2mV \\ \hline \hline \hline \hline
+	18.0V & 3665mV & - & +0.2mV \\ \hline
+	20.0V & 4073mV & - & -1.0mV \\ \hline
+	21.0V & 4276mV & - & +0.4mV \\ \hline
+	22.0V & 4479mV & - & -0.2mV \\ \hline
+\end{tabular}
+\caption{Verifizierung der Messwerte $messU$ des Spannungsteilers.}
+\label{tab:messU}
+\end{table}
+Die Fehler sind sehr klein und gleichen sich zumeist aus. Ausserdem sind die Fehler jeweils deutlich kleiner als die Auflösung des AD-Wandlers des Mikrocontrollers. Die Ausgangsspannung beträgt gemäss obiger Messreihe: $U=messU\cdot 4.912$
+\begin{equation}
+	U=\text{Messwert}\cdot 4.912
+\label{eq:messreihe_messu}
+\end{equation}
+Für die Software, in welcher alle Werte in Millivolt betrachtet werden, wird $istU$ mit Formel \ref{eq:messreihe_messu} folgendermassen bestimmt:
+\begin{equation}
+	istU=messU\cdot\frac{614}{125}
+\label{eq:messreihe_messu_sw}
+\end{equation}
+
+
+\subsection{Strommessung}
+Die Strommessung beinhaltet Widerstände, Operationsverstärker sowie einen Hallsensor, die allesamt Toleranzen unterworfen sind. Am kritischsten ist dabei sicherlich der Spannungsteiler aus 2x 1k$\Omega$, der für die Subtraktionsschaltung benötigt wird. Bei einer Toleranz von 1\% kann die Spannung dabei 2.5V$\pm$50.5mV betragen. Diese Spannungsdifferenz wird jedoch ebenfalls um den Faktor 7.5 Verstärkt, wodurch der maximale Fehler bereits 378.8mV beträgt, was bei 10bit Auflösung des AD-Wandlers durchaus relevant ist. \newline
+Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.1A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um 141mV zunehmen, ausserdem ist ein Offset von 247mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 2.8A in Tabelle \ref{tab:messI} ermittelt.
+\begin{table}%
+\centering
+\begin{tabular}{|r|r|r|r|}
+	\hline
+	\textbf{Ausgangsstrom} & \textbf{Messwert $messI$} & \textbf{Differenz} & \textbf{Fehler} \\ \hline
+	0.0A & 247mV & - & 247mV \\ \hline
+	0.1A & 390mV & 143mV & +2mV \\ \hline
+	0.2A & 531mV & 141mV & 0mV \\ \hline
+	0.3A & 668mV & 137mV & -4mV \\ \hline
+	0.4A & 807mV & 139mV & -2mV \\ \hline
+	0.5A & 947mV & 140mV & -1mV \\ \hline
+	0.6A & 1080mV & 133mV & -8mV \\ \hline
+	0.7A & 1227mV & 137mV & -4mV \\ \hline
+	0.8A & 1371mV & 144mV & +3mV \\ \hline
+	0.9A & 1516mV & 145mV & +4mV \\ \hline
+	1.0A & 1657mV & 141mV & 0mV \\ \hline
+	1.1A & 1800mV & 143mV & +2mV \\ \hline
+	1.2A & 1942mV & 142mV & +1mV \\ \hline
+	1.3A & 2080mV & 138mV & -3mV \\ \hline
+	1.4A & 2223mV & 143mV & +2mV \\ \hline
+	1.5A & 2370mV & 137mV & -4mV \\ \hline
+	1.6A & 2509mV & 139mV & -2mV \\ \hline
+	1.7A & 2641mV & 132mV & -9mV \\ \hline
+	1.8A & 2795mV & 144mV & +3mV \\ \hline
+	1.9A & 2936mV & 141mV & 0mV \\ \hline
+	2.0A & 3075mV & 139mV & -2mV \\ \hline
+	2.1A & 3220mV & 145mV & +4mV \\ \hline
+	2.2A & 3357mV & 137mV & -4mV \\ \hline
+	2.3A & 3490mV & 133mV & -8mV \\ \hline
+	2.4A & 3630mV & 140mV & -1mV \\ \hline
+	2.5A & 3778mV & 148mV & +7mV \\ \hline
+	2.6A & 3922mV & 144mV & +3mV \\ \hline
+	2.7A & 4070mV & 148mV & +7mV \\ \hline
+	2.8A & 4209mV & 139mV & -2mV \\ \hline
+\end{tabular}
+\caption{Verifizierung der Messwerte $messI$ der Strommessung.}
+\label{tab:messI}
+\end{table}
+Die Fehler sind ungefähr gleichmässig verteilt und können mit der Ungenauigkeit der verwendeten Stromquelle erklärt werden. Jedoch sind sie deutlich grösser als beim Spannungsteiler, jedoch noch weit unterhalb der geforderten Genauigkeit. Der Ausgangsstrom beträgt gemäss obiger Messreihe:
+\begin{equation}
+	I=\frac{Messwert-0.247V}{1.41}
+\label{eq:messreihe_messi}
+\end{equation}
+Für die Software, in welcher alle Werte in Millivolt und Milliampere betrachtet werden, wird $istI$ mit Formel \ref{eq:messreihe_messi} folgendermassen bestimmt
+\begin{equation}
+	istI=\left(messI-247mV\right)\cdot\frac{100}{141}
+\label{eq:messreihe_messi_sw}
+\end{equation}

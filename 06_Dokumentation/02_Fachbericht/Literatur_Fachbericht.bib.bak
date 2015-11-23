@@ -2,7 +2,17 @@
 % Encoding: Cp1252
 
 
-@Book{,
+@Book{operationsverstaerker,
+  Title                    = {Operationsverstärker},
+  Author                   = {Joachim Federau},
+  Publisher                = {Springer Vieweg Verlag},
+  Year                     = {2013},
+
+  Owner                    = {Yanick},
+  Timestamp                = {2015.11.23}
+}
+
+@Book{photovoltaik_engineering,
   Title                    = {Photovoltaik Engineering},
   Author                   = {Andreas Wagner},
   Publisher                = {Springer Verlag},
