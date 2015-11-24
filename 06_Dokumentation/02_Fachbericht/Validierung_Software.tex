@@ -1,1 +1,11 @@
 \subsection{Software}
+Zur Validierung der Software wird vorausgesetzt, dass die Messschaltung korrekt funktioniert. Das Testen der Software erfolgt dabei in mehreren Schritten, die jeweils die korrekte Funktion des vorherigen Schrittes bedingen:
+
+\paragraph{1. Schritt:}
+Zu Beginn werden die Rückrechnungen der Messwerte $messU$ und $messI$ überprüft. Zu diesem Zweck werden bekannte Spannungen und Ströme an der Messchaltung angelegt und die von der Software zurück gerechneten Werte $istU$ und $istI$ werden auf dem Bildschirm angezeigt und mit den Originalwerten verglichen. Falls dies bei 100\% Bestrahlungsstärke funktioniert, wird die selbe Funktion ebenfalls mit verringerter Bestrahlungsstärke überprüft. Dabei sollten die zurückgerechneten Stromwerte gemäss Formel (\ref{eq:kennlinie_prozent}) höher als die effektiven Stromwerte sein.
+
+\paragraph{2. Schritt:}
+Mit den nun korrekt berechneten Stromwerten wird mittels $LookUpTable.h$ nachgeschlagen, welche Sollspannung $sollU$ anliegen soll und dieser Spannungswert am Bildschirm angezeigt. Dies wird dabei für saubere und verschmutzte Solarzellen überprüft. Mit den bekannten und korrekten Stromwerten wird nach Formel (\ref{eq:kennlinie}) für die saubere Solarzelle manuell zurück gerechnet und die beiden Spannungswerte werden verglichen.
+
+\paragraph{3. Schritt:}
+Nun wird die Vergleichsfunktion überprüft. Falls die Istspannung $istU$ geringer als die Sollspannung $sollU$ ist, sollte der Integer $regelwert$ positiv werden, bei Spannungsdifferenzen über 200mV mit einem Wert von 2 und bei kleineren Spannungsdifferenzen mit einem Wert von 1. Falls die Sollspannung $sollU$ geringer als die Istspannung $istU$ ist, wird $regelwert$ negativ mit einem Wert von -1. Falls die Spannungsdifferenz grösser als 200mV ist, wird $regelwert=-2$ gesetzt.
