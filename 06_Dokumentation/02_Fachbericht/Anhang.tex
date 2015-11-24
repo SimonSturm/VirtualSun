@@ -1,6 +1,6 @@
 \section{Verifizierung Messaufbau}
 
-\subsection{Spannungsmessung}
+\subsection{Spannungsmessung}\label{subsec_messu}
 Die Spannung wird mittels eines Spannungsteilers aus zwei Widerstände bemessen. Die Toleranz beider Widerstände beträgt $\pm$ 1\%, im schlechtesten Fall ist ein Widerstand am oberen Ende der Toleranz, der andere am unteren Ende (beispielsweise 39.39k$\Omega$ und 9.9k$\Omega$ anstelle von 39k$\Omega$ und 10k$\Omega$). Der maximal mögliche Fehler beträgt damit 2.02\%. \newline
 Um diesen Fehler auszuschliessen, wurde die Spannung am Ausgang des Spannungsteilers bei der grössten und der kleinsten möglichen Ausgangsspannung gemessen und die Differenz als +101.8mV pro 0.5V Ausgangsspannungserhöhung bestimmt. Mit den in Tabelle \ref{tab:messU} folgenden Messreihe wurde die Genauigkeit dieser Schaltung verifiziert. Die Werte über 14.0V dienen dabei nur noch zur Kontrolle, ob die Genauigkeit auch bei höheren Spannungen noch vorhanden ist.
 \begin{table}
@@ -57,7 +57,7 @@ Für die Software, in welcher alle Werte in Millivolt betrachtet werden, wird $i
 \end{equation}
 
 
-\subsection{Strommessung}
+\subsection{Strommessung}\label{subsec_messi}
 Die Strommessung beinhaltet Widerstände, Operationsverstärker sowie einen Hallsensor, die allesamt Toleranzen unterworfen sind. Am kritischsten ist dabei sicherlich der Spannungsteiler aus 2x 1k$\Omega$, der für die Subtraktionsschaltung benötigt wird. Bei einer Toleranz von 1\% kann die Spannung dabei 2.5V$\pm$50.5mV betragen. Diese Spannungsdifferenz wird jedoch ebenfalls um den Faktor 7.5 Verstärkt, wodurch der maximale Fehler bereits 378.8mV beträgt, was bei 10bit Auflösung des AD-Wandlers durchaus relevant ist. \newline
 Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.1A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um 141mV zunehmen, ausserdem ist ein Offset von 247mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 2.8A in Tabelle \ref{tab:messI} ermittelt.
 \begin{table}%
@@ -108,3 +108,7 @@ Für die Software, in welcher alle Werte in Millivolt und Milliampere betrachtet
 	istI=\left(messI-247mV\right)\cdot\frac{100}{141}
 \label{eq:messreihe_messi_sw}
 \end{equation}
+
+
+\newpage
+\section{CD-ROM}

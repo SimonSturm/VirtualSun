@@ -1,3 +1,10 @@
 \section{Validierung}
 
 \subsection{Hardware}
+
+\subsubsection{Messschaltung}
+Die Validierung der Messschaltung gestaltet sich durchaus einfach, da die beiden Formeln für die erwarteten Messwerte $messU$ (\ref{eq:messU}) und $messI$ (\ref{eq:messI}) bekannt sind. Problematisch an diesen beiden Formeln ist jedoch, dass mit idealen Bauteilen gerechnet wurde, welche in der Realität nicht verfügbar sind. Bei der Spannungsmessung sind dies lediglich die Toleranzen für die Widerstandswerte, sodass sich bei Widerständen mit 1\% Genauigkeit ein maximaler Fehler von 2.02\% bemerkbar machen kann. Dieser Fehler setzt sich jedoch linear fort, sodass weiterhin durch einen konstanten Faktor dividiert werden kann. Die dazugehörige Messreihe ist im Anhang unter \ref{subsec_messu} auf Seite \pageref{subsec_messu} aufgeführt.
+
+Bei der Strommessung sind es sämtliche Widerstände, die beiden Operationsverstärker sowie der Hallsensor, welche Toleranzen aufweisen. Die beiden 1k$\Omega$ Widerstände, welche die Subtrahendensspannung von Vcc/2 erzeugen, würden dabei einen Offset erzeugen, welcher in der nachfolgenden invertierenden Verstärkerschaltung noch verstärkt wird. Die Toleranzen der anderen Widerstände sowie die Toleranz des Hallsensors wirken dabei als ein konstanter Vorfaktor. Der Offset sowie der Vorfaktor wurden im Anhang unter \ref{subsec_messi} auf Seite \pageref{subsec_messi} mittels einer Messreihe bestimmt.
+
+\subsubsection{Regler}
