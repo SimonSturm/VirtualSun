@@ -8,7 +8,14 @@ Im Programm selbst gibt es die Integer $prozent$, welche die aktuelle Bestrahlun
 In der Funktion $main$ existieren ausserdem die Integer $messU$ für die gemessene Spannung am Spannungsteiler, $istU$ für die berechnete Ausgangsspannung, $sollU$ für den zum Stromwert passenden Spannungswert, $messI$ für die gemessene Spannung am Eingang des Controllers für die Strommessung und $istI$, worin der berechnete Ausgangsstrom gespeichert ist. Sämtliche Variabeln repräsentieren dabei die Werte in Millivolt bzw. Milliampere. \newline
 Zur Realisierung der Umschaltung zwischen sauber und verschmutzt ist ausserdem noch der Integer $modus$ vorhanden. Dieser kann die beiden Zustände $MODUSSAUBER$ (entsprechend einer 1) und $MODUSVERSCHMUTZT$ (entsprechend einer 0) annehmen.
 
-Die Routine zur Regelung wird mittels einem Vergleich ausgeführt, welcher sich alle \colorbox{red}{1ms (eventuell nachträglich anpassen} wiederholt. Dabei werden zuerst aus den gemessenen Werten $messU$ und $messI$ die aktuellen Werte am Ausgang des Gerätes $istU$ und $istI$ berechnet. \newline
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{Pfeildiagramm_Software.jpg}
+	\caption{Flussdiagramm der Regelungsroutine.}
+	\label{fig:Pfeildiagramm_Software}
+\end{figure}
+
+Abbildung \ref{fig:Pfeildiagramm_Software} zeigt als Flussdiagramm den Ablauf der Regelungssoftware, welche nachfolgend erläutert wird. Die Routine zur Regelung wird mittels einem Vergleich ausgeführt, welcher sich alle \colorbox{red}{1ms (eventuell nachträglich anpassen} wiederholt. Dabei werden zuerst die beiden analogen Eingänge für $messU$ und $messI$ ausgemessen und aus den gemessenen Werten $messU$ und $messI$ die aktuellen Werte am Ausgang des Gerätes $istU$ und $istI$ berechnet. \newline
 Anschliessend wird der Wert $istI$ mit der Beleuchtungsstärke $prozent$ verrechnet, um die Kennlinie entsprechend zu verschieben. Wie das genau funktioniert ist im Kapitel \ref{subsec_mathe} ausführlich beschrieben. \newline
 Der so erhaltene Wert muss nun auf dem Wertebereich der $LookUpTable.h$ abgeglichen werden. Dazu werden zu grosse oder zu kleine Werte auf den Maximal- beziehungsweise Minimalwert korrigiert und anschliessend die Genauigkeit auf 10 Milliampere angepasst.
 
