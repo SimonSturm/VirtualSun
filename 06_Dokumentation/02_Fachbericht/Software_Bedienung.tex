@@ -1,5 +1,5 @@
 \subsection{Bedienung}
-Die Software zur Bedienung wurde in drei Teile gestaltet. Hardwaremäßig wurde nur das geringste an Elemente verwendet. Die drei Bedienelemente sind jeweils Aktiv High am Mikrocontroller geschaltet mittels einem Taster-Pull-Up-Schaltkreis \ref{fig:SwitchPullUp_Software}. Der Pull-Up Widerstand ist 10k\Omega, der mit einem Taster auf Erde geschaltet wird.
+Die Software zur Bedienung wurde in drei Teile gestaltet. Hardwaremäßig wurde nur das geringste an Elemente verwendet. Die drei Bedienelemente sind jeweils Aktiv High am Mikrocontroller geschaltet mittels einem Taster-Pull-Up-Schaltkreis \ref{fig:SwitchPullUp_Software}. Der Pull-Up Widerstand ist 10k\Omega, der mit einem Taster auf Erde verbunden wird.
 
 \begin{figure}[h]
 	\centering
@@ -8,5 +8,5 @@ Die Software zur Bedienung wurde in drei Teile gestaltet. Hardwaremäßig wurde 
 	\label{fig:SwitchPullUp_Software}
 \end{figure}
 
-Der Mikrocontroller fragt den Taster Eingang mit einem Timer-Interrupt alle 16ms ab und übergibt das Signal einer Funktion zur Entprellung der Taster. Die Funktion durchläuft eine for-Schleife, die das Signal nach Einsen (1) und Nullen sortiert. Überwiegen nach N-Wiederholungen die Einsen ist der Taster gedrückt und die hinterlegte Aktion wird aktiviert. \newline
-%Die Taster können zweifach verwendet werden. Einerseits kann der Taster kurzzeitig ged%
+Der Timer-Interrupt im Mikrocontroller ruft alle 16ms eine Funktion auf, die den Taster mit einer for-Schleife entprellt. Dabei vergleicht die Funktion den alten Tastenzustand (old_button) mit dem neuen Tastenzustand (current_button) und startet nach einer Verzögerung von 10ms die Schleife erneut. Sollte der neue Tastenzustand nach 16ms immer noch der gleiche sein, wird durch eine UND-Verknüpfung vom alten Tastenzustand, dem inversen neuen Tastenzustand und der Bitmaske des Eingangs der Taster als gedrückt erkannt. Eine Erweiterung der Funktion ermöglicht das erkennen eines länger gedrückten Taster um den Zähler um zehn Einheiten zu erhöhen.
+\newline
