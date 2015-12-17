@@ -1,12 +1,21 @@
 \subsection{Bedienung}
-Die Software zur Bedienung wurde in drei Teile gestaltet. Hardwaremäßig wurde nur das geringste an Elemente verwendet. Die drei Bedienelemente sind jeweils Aktiv High am Mikrocontroller geschaltet mittels einem Taster-Pull-Up-Schaltkreis \ref{fig:SwitchPullUp_Software}. Der Pull-Up Widerstand ist 10k\Omega, der mit einem Taster auf Erde verbunden wird.
+Die Software zur Bedienung wurde in drei Teile gestaltet. Hardwaremäßig wurde nur das geringste an Elemente verwendet. Die drei Bedienelemente sind jeweils Aktiv High am Mikrocontroller geschaltet mittels einem Taster-Pull-Up-Schaltkreis \ref{fig:SwitchPullUp_Software}. Der Pull-Up Widerstand ist $10k\Omega$, der mit einem Taster auf Erde verbunden wird.
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=1.00\textwidth]{switchpullupcircuit.jpg}
+		\includegraphics[width=0.25\textwidth]{switchpullupcircuit.jpg}
 	\caption{Taster-Pull-Up-Schaltkreis}
 	\label{fig:SwitchPullUp_Software}
 \end{figure}
 
-Der Timer-Interrupt im Mikrocontroller ruft alle 16ms eine Funktion auf, die den Taster mit einer for-Schleife entprellt. Dabei vergleicht die Funktion den alten Tastenzustand (old_button) mit dem neuen Tastenzustand (current_button) und startet nach einer Verzögerung von 10ms die Schleife erneut. Sollte der neue Tastenzustand nach 16ms immer noch der gleiche sein, wird durch eine UND-Verknüpfung vom alten Tastenzustand, dem inversen neuen Tastenzustand und der Bitmaske des Eingangs der Taster als gedrückt erkannt. Eine Erweiterung der Funktion ermöglicht das erkennen eines länger gedrückten Taster um den Zähler um zehn Einheiten zu erhöhen.
+
+%ISR (TIMER0_OVF_vect)
+Der Timer-Interrupt im Mikrocontroller ruft alle 16ms eine Funktion auf, die den Taster entprellt, aber auch die Länge des Zustandes registriert.
+%button |= ~old_button & current_button & BUTTONMASK;
+Der Taster (button) wird als gedrückt erkannt, wenn die Inverse vom alten Zustand (old\_button), dem momentanen Zustand (current\_button) und der Pinmaske (BUTTONMASK)übereinstimmen.
+%if (button)
+Die folgende If-Else-Bedingung zählt den Bestrahlungswert hoch und erkennt einen gedrückten Taster. Einmal tippen zählt den Bestrahlungswert um eins hoch, wird länger gedrückt springt die Funktion in die Else-Bedingung. Der Wertebereich liegt zwischen 20 und 100. Eine If-Bedingung setzt den Bestrahlungswert beim überschreiten von 100 (Wert grösser gleich 101) zurück auf 20.
+In der Else-Bedingung wird zunächst geprüft, ob der Taster immer noch gedrückt wird (current\_button and BUTTONMASK). Ist die Bedingung erfüllt, dekrementiert die Funktion einen Wert, der den Unterschied zwischen Tippen und Drücken macht. Bei Null ist die Bedingung erfüllt und der Bestrahlungswert wird um zehn erhöht. Dabei springt er nur auf die nächste Zehnerzahl (Bestrahlungswert gleich Bestrahlungswert geteilt durch 10 multipliziert mit 10 und addiert mit 10). Hier wird wieder darauf geachtet, dass die Zahl 101 nicht überschreitet, sonst wird sie auf 20 zurückgesetzt.
+Abgeschlossen wird die Funktion mit dem setzen vom alten Zustand gleich zum neuen Zustand.
+Der Bestrahlungswert wird nach der Funktion in eine Variable gespeichert und auf dem Display angezeigt.
 \newline
