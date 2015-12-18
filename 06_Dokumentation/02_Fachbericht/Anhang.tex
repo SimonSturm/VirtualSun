@@ -51,39 +51,40 @@ Für die Software, in welcher alle Werte in Millivolt betrachtet werden, wird $i
 
 \subsection{Strommessung}\label{subsec_messi}
 Die Strommessung beinhaltet Widerstände, Operationsverstärker sowie einen Hallsensor, die allesamt Toleranzen unterworfen sind. Am kritischsten ist dabei sicherlich der Spannungsteiler aus 2x 1k$\Omega$, der für die Subtraktionsschaltung benötigt wird. Bei einer Toleranz von 1\% kann die Spannung dabei 2.5V$\pm$50.5mV betragen. Diese Spannungsdifferenz wird jedoch ebenfalls um den Faktor 7.5 Verstärkt, wodurch der maximale Fehler bereits 378.8mV beträgt, was bei 10bit Auflösung des AD-Wandlers durchaus relevant ist. \newline
-Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.2A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um ???mV zunehmen, ausserdem ist ein Offset von ???mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 2.8A in Tabelle \ref{tab:messI} ermittelt.
+Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.2A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um 281.5mV zunehmen, ausserdem ist ein Offset von 247mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 3.0A in Tabelle \ref{tab:messI} ermittelt.
 \begin{table}%
 \centering
 \begin{tabular}{|r|r|r|r|}
 	\hline
 	\textbf{Ausgangsstrom} & \textbf{Messwert $messI$} & \textbf{Differenz} & \textbf{Fehler} \\ \hline
 	0.0A & 247mV & - & 247mV \\ \hline
-	0.2A & & & \\ \hline
-	0.4A & & & \\ \hline
-	0.6A & & & \\ \hline
-	0.8A & & & \\ \hline
-	1.0A & & & \\ \hline
-	1.2A & & & \\ \hline
-	1.4A & & & \\ \hline
-	1.6A & & & \\ \hline
-	1.8A & & & \\ \hline
-	2.0A & & & \\ \hline
-	2.2A & & & \\ \hline
-	2.4A & & & \\ \hline
-	2.6A & & & \\ \hline
-	2.8A & & & \\ \hline
+	0.2A & 525mV & 278mV & -3.5mV \\ \hline
+	0.4A & 809mV & 284mV & +2.5mV \\ \hline
+	0.6A & 1093mV & 284mV & +2.5mV \\ \hline
+	0.8A & 1374mV & 281mV & -0.5mV \\ \hline
+	1.0A & 1660mV & 286mV & +4.5mV \\ \hline
+	1.2A & 1943mV & 283mV & +1.5mV \\ \hline
+	1.4A & 2223mV & 280mV & -1.5mV \\ \hline
+	1.6A & 2507mV & 284mV & +2.5mV \\ \hline
+	1.8A & 2785mV & 278mV & -3.5mV \\ \hline
+	2.0A & 3061mV & 276mV & -5.5mV \\ \hline
+	2.2A & 3344mV & 283mV & +1.5mV \\ \hline
+	2.4A & 3629mV & 285mV & +3.5mV \\ \hline
+	2.6A & 3907mV & 278mV & -3.5mV \\ \hline
+	2.8A & 4187mV & 280mV & -1.5mV \\ \hline
+	3.0A & 4469mV & 282mV & +0.5mV \\ \hline
 \end{tabular}
 \caption{Verifizierung der Messwerte $messI$ der Strommessung.}
 \label{tab:messI}
 \end{table}
 Die Fehler sind ungefähr gleichmässig verteilt und können mit der Ungenauigkeit der verwendeten Stromquelle erklärt werden. Jedoch sind sie deutlich grösser als beim Spannungsteiler, jedoch noch weit unterhalb der geforderten Genauigkeit. Der Ausgangsstrom beträgt gemäss obiger Messreihe:
 \begin{equation}
-	I=\frac{Messwert-???V}{???}
+	I=\frac{Messwert-247mV}{1.407}
 \label{eq:messreihe_messi}
 \end{equation}
-Für die Software, in welcher alle Werte in Millivolt und Milliampere betrachtet werden, wird $istI$ mit Formel \ref{eq:messreihe_messi} folgendermassen bestimmt
+Für die Software, in welcher alle Werte in Millivolt und Milliampere betrachtet werden, wird $istI$ mit Formel \ref{eq:messreihe_messi} folgendermassen bestimmt:
 \begin{equation}
-	istI=\left(messI-???mV\right)\cdot\frac{???}{???}
+	istI=\left(messI-247mV\right)\cdot\frac{4222}{3}
 \label{eq:messreihe_messi_sw}
 \end{equation}
 
