@@ -1,0 +1,22 @@
+\subsection{Gehäuse und Netzteil}
+
+\subsubsection{Gehäuse}
+Das Gehäuse beherbergt sämtliche Komponenten inklusive dem Netzteil. Damit das Gehäuse selbst nicht geerdet werden muss, ist es komplett aus Kunststoff gefertigt. Auf der Geräterückseite findet sich die Netzbuchse, eine eingangsseitige Feinsicherung mit einem Wert von 6A, Lüftungsschlitze sowie ein Lüfter, welcher die Komponenten im Inneren des Gerätes anbläst. Zur Verringerung der Lärmemissionen wird der 12V Lüfter lediglich mit einer Spannung von 5V betrieben.
+
+Auf der Vorderseite des Gehäuses befinden sich die Bedienelemente in Form des Hauptschalters und der drei Taster, der Bildschirm zur Ausgabe der Werte sowie die beiden Laborbuchsen für Plus- und Minuspol.
+
+Im Inneren des Gehäuses befinden sich das Netzgerät (siehe Abschnitt \ref{Netzgeraet}) sowie die beiden Platinen. Die erste Platine dient dabei dem Schaltregler und der Spannungsversorgung des Lüfters, während die zweite Platine die Spannungsversorgung des Bildschirms, des Mikrocontrollers und der Bauteile dient. Ausserdem befinden sich auf der zweiten Platine der Messaufbau für Strom und Spannung sowie die Peripherieschaltung für Bildschirm und Taster. Die beiden Platinen sind dabei übereinander aufgebaut neben dem Netzteil auf eine Bodenplatte geschraubt.
+
+Für sämtliche internen Verbindungen, über welche Leistung übertragen wird, wurde Kupferlitze mit einem Querschnitt von 0.75mm$^2$ verwendet. Die CAD-Pläne für die Front- und die Rückseite sowie die Bodenplatte können im Anhang unter \ref{cad} auf Seite \pageref{cad} entnommen werden.
+
+
+\subsubsection{Netzteil}\label{Netzgeraet}
+An das Netzgerät wurden bei der Auswahl folgende Bedingungen gestellt:
+\begin{itemize}
+	\item Die Eingangsspannung beträgt 230V$\pm$10$\%$ 50Hz, optimal wäre ebenfalls eine Unterstützung von 110V$\pm$10$\%$ 60Hz für den amerikanischen Markt.
+	\item Die Ausgangsspannung beträgt 24V DC. Dabei sollte mindestens ein Strom von 4A geliefert werden können.
+	\item Das Netzgerät verfügt über einen galvanisch getrennten Ausgang und entspricht der Schutzklasse II.
+	\item Das Netzgerät verfügt über eine CE-Zertifizierung.
+	\item Die Restwelligkeit ist möglichst klein. Als Maximalwert wird 1\% der Ausgangsspannung festgelegt, was bei 24V 240mV entspricht.
+\end{itemize}
+Diesen Anforderungen entspricht das Netzteil TOP 100-124 der Firma Traco Power. Gemäss Datenblatt \cite{db_tracopower} sollte dieses Netzteil mit einer trägen Sicherung mit einem Wert von 6A vorgesichert werden. Diese Feinsicherung ist bereits im Gehäuse eingebaut.

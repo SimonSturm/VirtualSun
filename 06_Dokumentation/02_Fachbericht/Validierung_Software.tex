@@ -9,3 +9,6 @@ Mit den nun korrekt berechneten Stromwerten wird mittels $LookUpTable.h$ nachges
 
 \paragraph{3. Schritt:}
 Nun wird die Vergleichsfunktion überprüft. Falls die Istspannung $istU$ geringer als die Sollspannung $sollU$ ist, sollte der Integer $regelwert$ positiv werden, bei Spannungsdifferenzen über 200mV mit einem Wert von 3 und bei kleineren Spannungsdifferenzen mit einem Wert von 1. Falls die Sollspannung $sollU$ geringer als die Istspannung $istU$ ist, wird $regelwert$ negativ mit einem Wert von -1. Falls die Spannungsdifferenz grösser als 200mV ist, wird $regelwert=-3$ gesetzt.
+
+\paragraph{4. Schritt:}
+Gemäss Formel (\ref{eq:feedbackpin}) kann nun der Wert überprüft werden, der am Ausgang des Digital-Analog-Wand\-lers anliegt. Dieser Wert wird mittels SPI vom Mikrocontroller zum Digital-Analog-Wand\-ler übertragen. Dieser Schritt testet lediglich die korrekte Funktion des SPI Kanals.

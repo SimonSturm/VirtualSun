@@ -1,9 +1,8 @@
 \section{Verifizierung Messaufbau}
 
 \subsection{Spannungsmessung}\label{subsec_messu}
-Die Spannung wird mittels eines Spannungsteilers aus zwei Widerstände bemessen. Die Toleranz beider Widerstände beträgt $\pm$ 1\%, im schlechtesten Fall ist ein Widerstand am oberen Ende der Toleranz, der andere am unteren Ende (beispielsweise 39.39k$\Omega$ und 9.9k$\Omega$ anstelle von 39k$\Omega$ und 10k$\Omega$). Der maximal mögliche Fehler beträgt damit 2.02\%. \newline
-Um diesen Fehler auszuschliessen, wurde die Spannung am Ausgang des Spannungsteilers bei der grössten und der kleinsten möglichen Ausgangsspannung gemessen und die Differenz als 202.3mV pro V Ausgangsspannungserhöhung bestimmt. Mit den in Tabelle \ref{tab:messU} folgenden Messreihe wurde die Genauigkeit dieser Schaltung verifiziert.
-\begin{table}
+
+\begin{table}[h]
 \centering
 \begin{tabular}{|r|r|r|r|}
 	\hline
@@ -37,6 +36,10 @@ Um diesen Fehler auszuschliessen, wurde die Spannung am Ausgang des Spannungstei
 \caption{Verifizierung der Messwerte $messU$ des Spannungsteilers.}
 \label{tab:messU}
 \end{table}
+
+Die Spannung wird mittels eines Spannungsteilers aus zwei Widerstände bemessen. Die Toleranz beider Widerstände beträgt $\pm$ 1\%, im schlechtesten Fall ist ein Widerstand am oberen Ende der Toleranz, der andere am unteren Ende (beispielsweise 39.39k$\Omega$ und 9.9k$\Omega$ anstelle von 39k$\Omega$ und 10k$\Omega$). Der maximal mögliche Fehler beträgt damit 2.02\%. \newline
+Um diesen Fehler auszuschliessen, wurde die Spannung am Ausgang des Spannungsteilers bei der grössten und der kleinsten möglichen Ausgangsspannung gemessen und die Differenz als 202.3mV pro V Ausgangsspannungserhöhung bestimmt. Mit den in Tabelle \ref{tab:messU} folgenden Messreihe wurde die Genauigkeit dieser Schaltung verifiziert.
+
 Die Fehler sind sehr klein und gleichen sich zumeist aus. Ausserdem sind die Fehler jeweils deutlich kleiner als die Auflösung des AD-Wandlers des Mikrocontrollers. Die Ausgangsspannung beträgt gemäss obiger Messreihe:
 \begin{equation}
 	U=\text{Messwert}\cdot 4.938
@@ -50,9 +53,8 @@ Für die Software, in welcher alle Werte in Millivolt betrachtet werden, wird $i
 
 
 \subsection{Strommessung}\label{subsec_messi}
-Die Strommessung beinhaltet Widerstände, Operationsverstärker sowie einen Hallsensor, die allesamt Toleranzen unterworfen sind. Am kritischsten ist dabei sicherlich der Spannungsteiler aus 2x 1k$\Omega$, der für die Subtraktionsschaltung benötigt wird. Bei einer Toleranz von 1\% kann die Spannung dabei 2.5V$\pm$50.5mV betragen. Diese Spannungsdifferenz wird jedoch ebenfalls um den Faktor 7.5 Verstärkt, wodurch der maximale Fehler bereits 378.8mV beträgt, was bei 10bit Auflösung des AD-Wandlers durchaus relevant ist. \newline
-Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.2A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um 281.5mV zunehmen, ausserdem ist ein Offset von 247mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 3.0A in Tabelle \ref{tab:messI} ermittelt.
-\begin{table}%
+
+\begin{table}[h]%
 \centering
 \begin{tabular}{|r|r|r|r|}
 	\hline
@@ -77,6 +79,10 @@ Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am
 \caption{Verifizierung der Messwerte $messI$ der Strommessung.}
 \label{tab:messI}
 \end{table}
+
+Die Strommessung beinhaltet Widerstände, Operationsverstärker sowie einen Hallsensor, die allesamt Toleranzen unterworfen sind. Am kritischsten ist dabei sicherlich der Spannungsteiler aus 2x 1k$\Omega$, der für die Subtraktionsschaltung benötigt wird. Bei einer Toleranz von 1\% kann die Spannung dabei 2.5V$\pm$50.5mV betragen. Diese Spannungsdifferenz wird jedoch ebenfalls um den Faktor 7.5 Verstärkt, wodurch der maximale Fehler bereits 378.8mV beträgt, was bei 10bit Auflösung des AD-Wandlers durchaus relevant ist. \newline
+Aus diesem Grund wurde eine Messreihe durchgeführt. Dabei wurde die Spannung am Ausgang der Messschaltung zuerst bei minimalem und anschliessend bei maximalem Strom der verfügbaren Stromquelle gemessen. Pro 0.2A mehr Ausgangsstrom sollte die Spannung $messI$ gemäss dieser Messung um 281.5mV zunehmen, ausserdem ist ein Offset von 247mV vorhanden. Diese Werte wurden bis zu einem Maximalstrom von 3.0A in Tabelle \ref{tab:messI} ermittelt.
+
 Die Fehler sind ungefähr gleichmässig verteilt und können mit der Ungenauigkeit der verwendeten Stromquelle erklärt werden. Jedoch sind sie deutlich grösser als beim Spannungsteiler, jedoch noch weit unterhalb der geforderten Genauigkeit. Der Ausgangsstrom beträgt gemäss obiger Messreihe:
 \begin{equation}
 	I=\frac{Messwert-247mV}{1.407}
@@ -89,5 +95,28 @@ Für die Software, in welcher alle Werte in Millivolt und Milliampere betrachtet
 \end{equation}
 
 
+
 \newpage
-\section{CD-ROM}
+\section{CAD-Pläne des Gehäuses}\label{cad}
+Nachfolgend die CAD-Pläne der Vorderseite (Abbildung \ref{fig:Cad_Vorderseite}), der Rückseite (Abbildung \ref{fig:Cad_Ruckseite}) und der Bodenplatte (Abbildung \ref{fig:Cad_Bodenplatte}) des Gehäuses. Diese Pläne befinden sich ebenfalls als .PDF-Datei und .DXF-Datei auf der CD-ROM (Abschnitt \ref{cd}).
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{Cad_Vorderseite.pdf}
+	\caption{CAD Zeichnung der Gehäusefront.}
+	\label{fig:Cad_Vorderseite}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{Cad_Ruckseite.pdf}
+	\caption{CAD Zeichnung der Gehäuserückseite.}
+	\label{fig:Cad_Ruckseite}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{Cad_Bodenplatte.pdf}
+	\caption{CAD Zeichnung der Bodenplatte.}
+	\label{fig:Cad_Bodenplatte}
+\end{figure}
