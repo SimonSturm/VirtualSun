@@ -21,12 +21,16 @@ Der so erhaltene Wert muss nun auf dem Wertebereich der $LookUpTable.h$ abgeglic
 
 Das Programm prüft nun, ob in der Variabel $modus$ der Wert $SAUBER$ oder $VERSCHMUTZT$ hinterlegt ist. Je nachdem welcher Modus gewählt ist wird der Referenzwert für $sollU$ aus dem Array $sauber[]$ oder $verschmutzt[]$ geladen. Die Indexposition entspricht dabei dem oben angepassten Wert des Stromes $istI$. Der Spannungswert von $sollU$ entspricht nun der Spannung, welche bei diesem Strom gemäss der Formel (\ref{eq:kennlinie}) auftreten sollte.
 
-Der aktuelle Spannungswert am Ausgang $istU$ wird nun mit dem Referenzwert $sollU$ verglichen. Falls $istU$ grösser als $sollU$ ist, wird $regelwert$ negativ. Um die Regelung genauer zu gestalten, sind für $regelwert$ zwei mögliche negative Werte möglich: -1 für ein langsames verringern der Spannung und -2 für ein schnelles verringern der Spannung. Zu diesem Zweck wird ein neuer Integer $differenz$ erstellt, welcher die Differenz zwischen $istU$ und $sollU$ beinhaltet. Falls diese Differenz grösser als 200 Millivolt ist, wird die Spannung schnell verringert, also wird für $regelwert$ der Wert -2 gesetzt. Falls dies nicht der Fall ist, wird für $regelwert$ der Wert -1 gesetzt. \newline
+Der aktuelle Spannungswert am Ausgang $istU$ wird nun mit dem Referenzwert $sollU$ verglichen. Falls $istU$ grösser als $sollU$ ist, wird $regelwert$ negativ. Um die Regelung genauer zu gestalten, sind für $regelwert$ zwei mögliche negative Werte möglich: -1 für ein langsames verringern der Spannung und -3 für ein schnelles verringern der Spannung. Zu diesem Zweck wird ein neuer Integer $differenz$ erstellt, welcher die Differenz zwischen $istU$ und $sollU$ beinhaltet. Falls diese Differenz grösser als 200 Millivolt ist, wird die Spannung schnell verringert, also wird für $regelwert$ der Wert -3 gesetzt. Falls dies nicht der Fall ist, wird für $regelwert$ der Wert -1 gesetzt. \newline
 Falls $sollU$ grösser als $istU$ ist, wird für $regelwert$ ein positiver Wert gesetzt, der ebenfalls zwei Abstufungen kennt. Dies funktioniert jedoch gleich wie bei negativen Werten von $regelwert$. \newline
 Falls $sollU$ und $istU$ den selben Wert haben wird für $regelwert$ eine 0 gesetzt. Das bedeutet, dass der Regler selbst nicht verändert werden soll.
 
-\colorbox{red}{Ergänzen um Teil zur Ansteuerung des Reglers (Sturm)}
-
+Der Schaltregler wird über die Spannung am Feedbackpin gesteuert. Dabei ist die Spannung am Feedbackpin proportional zur Ausgangsspannung des Schaltreglers. Es würde daher im einfachsten Fall genügen, einfach den entsprechenden Wert der Sollspannung am Feedbackpin anzulegen und den Schaltregler so nachregeln zu lassen. Da sich aber durch die veränderte Spannung auch ein anderer Strom ergibt, gerät so der Schaltregler in Schwingung. Daher wird die Spannung immer nur verhältnismässig langsam verändert, um ein Schwingen zu verhindern. Dazu wird die Spannung am Feedbackpin nur geringfügig gegenüber der aktuellen Spannung am Feedbackpin verändert. Im Abschnitt \colorbox{red}{Verweis auf Hardware-Schaltregler} ist die Formel für die Spannung am Feedbackpin hergeleitet, diese wird nun mit der Variable $regelwert$ wie folgt manipuliert:
+\begin{equation}
+	feedbackPin=2500-\frac{istU}{9}+regelwert\cdot2
+\label{eq:}
+\end{equation}
+Wie in der gesamten Software sind alle Werte in Millivolt, $feedbackPin$ steht also für die Spannung am Feedbackpin in Millivolt. Der Faktor 2 der Variable $regelwert$ wurde gewählt, um ein etwas schnelleres Regeln zu ermöglichen. Dieser Wert wird über die SPI-Schnittstelle an einen Digital-Analog-Wandler übermittelt, welcher die Spannung für den Feedbackpin erzeugt.
 
 
 

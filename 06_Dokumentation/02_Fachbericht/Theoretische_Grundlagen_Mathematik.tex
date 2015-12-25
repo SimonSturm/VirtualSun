@@ -1,6 +1,6 @@
-\subsection{Mathematik}\label{subsec_mathe}
+\section{Mathematische Grundlagen}\label{subsec_mathe}
 
-\subsubsection{Berechnung der Solarzellenkennlinie}
+\subsection{Berechnung der Solarzellenkennlinie}
 
 Gemäss \cite{photovoltaik_engineering} lässt sich die Kennlinie der Solarzelle aus folgenden Parametern berechnen:
 \begin{align*}
@@ -54,7 +54,7 @@ Die Kennlinie, welche in Abbildung \ref{fig:Kennlinie} dargestellt ist, wurde au
 	\label{fig:Kennlinie_Lastenheft}
 \end{figure}
 
-\subsubsection{Einfluss von Verschmutzungen auf die Kennlinie}
+\subsection{Einfluss von Verschmutzungen auf die Kennlinie}
 Gemäss Auftraggeber wird bei Verschmutzung oder Beschädigung der Solarzelle die Kennlinie im Bereich von $Pmax$ eingeknickt, wobei Kurzschlussstrom $I_{SC}$ und Leerlaufspannung $U_{OC}$ unbeeinflusst bleiben. Diese neue Kennlinie ist in Abbildung \ref{fig:kennlinie_verschmutzt} im Vergleich zur Originalkennlinie abgebildet.
 \begin{figure}
 	\centering
@@ -63,7 +63,7 @@ Gemäss Auftraggeber wird bei Verschmutzung oder Beschädigung der Solarzelle di
 	\label{fig:Kennlinie_Verschmutzt}
 \end{figure}
 
-\subsubsection{Anpassung der Kennlinie bei verschiedenen Bestrahlungsstärken}
+\subsection{Anpassung der Kennlinie bei verschiedenen Bestrahlungsstärken}
 Gemäss dem Lastenheft soll es ausserdem möglich sein, die Bestrahlungsstärke in einem Wertebereich von 20\% bis 100\% einstellen zu können. Bei Abnahme der Bestrahlung verschiebt sich die Kennlinie nach unten, sodass der Stromwert folgendermassen angepasst werden muss:
 \begin{equation}
 	I_{neu}=I+\frac{100-\left[\text{Bestrahlungsstärke in Prozent}\right]}{100}\cdot I_{SC}
