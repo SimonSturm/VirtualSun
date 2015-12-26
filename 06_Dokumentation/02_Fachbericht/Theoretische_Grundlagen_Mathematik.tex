@@ -55,7 +55,7 @@ Die Kennlinie, welche in Abbildung \ref{fig:Kennlinie} dargestellt ist, wurde au
 \end{figure}
 
 \subsection{Einfluss von Verschmutzungen auf die Kennlinie}
-Gemäss Auftraggeber wird bei Verschmutzung oder Beschädigung der Solarzelle die Kennlinie im Bereich von $Pmax$ eingeknickt, wobei Kurzschlussstrom $I_{SC}$ und Leerlaufspannung $U_{OC}$ unbeeinflusst bleiben. Diese neue Kennlinie ist in Abbildung \ref{fig:kennlinie_verschmutzt} im Vergleich zur Originalkennlinie abgebildet.
+Gemäss Auftraggeber wird bei Verschmutzung oder Beschädigung der Solarzelle die Kennlinie im Bereich von $Pmax$ eingeknickt, wobei Kurzschlussstrom $I_{SC}$ und Leerlaufspannung $U_{OC}$ unbeeinflusst bleiben. Diese neue Kennlinie ist in Abbildung \ref{fig:Kennlinie_Verschmutzt} im Vergleich zur Originalkennlinie abgebildet.
 \begin{figure}
 	\centering
 		\includegraphics[width=0.9\textwidth]{Kennlinie_Verschmutzt.jpg}
@@ -63,7 +63,7 @@ Gemäss Auftraggeber wird bei Verschmutzung oder Beschädigung der Solarzelle di
 	\label{fig:Kennlinie_Verschmutzt}
 \end{figure}
 
-\subsection{Anpassung der Kennlinie bei verschiedenen Bestrahlungsstärken}
+\subsection{Anpassung der Kennlinie bei verschiedenen Bestrahlungsstärken}\label{subsec_prozent}
 Gemäss dem Lastenheft soll es ausserdem möglich sein, die Bestrahlungsstärke in einem Wertebereich von 20\% bis 100\% einstellen zu können. Bei Abnahme der Bestrahlung verschiebt sich die Kennlinie nach unten, sodass der Stromwert folgendermassen angepasst werden muss:
 \begin{equation}
 	I_{neu}=I+\frac{100-\left[\text{Bestrahlungsstärke in Prozent}\right]}{100}\cdot I_{SC}
