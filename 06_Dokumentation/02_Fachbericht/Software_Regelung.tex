@@ -1,7 +1,7 @@
 \section{Software}
 
 \subsection{Regelung}
-Die Software zur Regelung beinhaltet zwei Integer-Arrays, $sauber[]$ und $verschmutzt[]$, welche mittels der Headerdatei $LookUpTable.h$ geladen werden. In diesen beiden Arrays sind die Spannungswerte in Millivolt für die saubere und die schmutzige Solarzelle hinterlegt, jeweils ein Wert alle 10 Milliampere. Der Index entspricht dabei dem jeweiligen Stromwert geteilt durch 10. \newline
+Die Software zur Regelung beinhaltet zwei Integer-Arrays, $sauber[]$ und $verschmutzt[]$, welche mittels der Headerdatei $LookUpTable.h$ geladen werden. In diesen beiden Arrays sind die Spannungswerte in Millivolt für die saubere und die schmutzige Solarzelle hinterlegt, jeweils ein Wert alle 10mA. Der Index entspricht dabei dem jeweiligen Stromwert geteilt durch 10. \newline
 Die Werte dazu wurden mittels eines Matlab-Files erstellt, das im Anhang angehängt ist. Die Werte entsprechen dabei der in Formel (\ref{eq:kennlinie}) berechneten Kennlinie.
 
 Im Programm selbst gibt es die Integer $prozent$, welche die aktuelle Bestrahlungsstärke darstellt, und $regelwert$, welcher angibt, wie stark der Regler korrigieren soll. \newline
@@ -21,7 +21,7 @@ Der so erhaltene Wert muss nun auf dem Wertebereich der $LookUpTable.h$ abgeglic
 
 Das Programm prüft nun, ob in der Variabel $modus$ der Wert $SAUBER$ oder $VERSCHMUTZT$ hinterlegt ist. Je nachdem welcher Modus gewählt ist wird der Referenzwert für $sollU$ aus dem Array $sauber[]$ oder $verschmutzt[]$ geladen. Die Indexposition entspricht dabei dem oben angepassten Wert des Stromes $istI$. Der Spannungswert von $sollU$ entspricht nun der Spannung, welche bei diesem Strom gemäss der Formel (\ref{eq:kennlinie}) auftreten sollte.
 
-Der aktuelle Spannungswert am Ausgang $istU$ wird nun mit dem Referenzwert $sollU$ verglichen. Falls $istU$ grösser als $sollU$ ist, wird $regelwert$ negativ. Um die Regelung genauer zu gestalten, sind für $regelwert$ zwei mögliche negative Werte möglich: -1 für ein langsames verringern der Spannung und -3 für ein schnelles verringern der Spannung. Zu diesem Zweck wird ein neuer Integer $differenz$ erstellt, welcher die Differenz zwischen $istU$ und $sollU$ beinhaltet. Falls diese Differenz grösser als 200 Millivolt ist, wird die Spannung schnell verringert, also wird für $regelwert$ der Wert -3 gesetzt. Falls dies nicht der Fall ist, wird für $regelwert$ der Wert -1 gesetzt. \newline
+Der aktuelle Spannungswert am Ausgang $istU$ wird nun mit dem Referenzwert $sollU$ verglichen. Falls $istU$ grösser als $sollU$ ist, wird $regelwert$ negativ. Um die Regelung genauer zu gestalten, sind für $regelwert$ zwei mögliche negative Werte möglich: -1 für ein langsames verringern der Spannung und -3 für ein schnelles verringern der Spannung. Zu diesem Zweck wird ein neuer Integer $differenz$ erstellt, welcher die Differenz zwischen $istU$ und $sollU$ beinhaltet. Falls diese Differenz grösser als 200mV ist, wird die Spannung schnell verringert, also wird für $regelwert$ der Wert -3 gesetzt. Falls dies nicht der Fall ist, wird für $regelwert$ der Wert -1 gesetzt. \newline
 Falls $sollU$ grösser als $istU$ ist, wird für $regelwert$ ein positiver Wert gesetzt, der ebenfalls zwei Abstufungen kennt. Dies funktioniert jedoch gleich wie bei negativen Werten von $regelwert$. \newline
 Falls $sollU$ und $istU$ den selben Wert haben wird für $regelwert$ eine 0 gesetzt. Das bedeutet, dass der Regler selbst nicht verändert werden soll.
 
@@ -30,7 +30,7 @@ Der Schaltregler wird über die Spannung am Feedbackpin gesteuert. Dabei ist die
 	feedbackPin=2500-\frac{istU}{9}+regelwert\cdot2
 \label{eq:feedbackpin}
 \end{equation}
-Wie in der gesamten Software sind alle Werte in Millivolt, $feedbackPin$ steht also für die Spannung am Feedbackpin in Millivolt. Der Faktor 2 der Variable $regelwert$ wurde gewählt, um ein etwas schnelleres Regeln zu ermöglichen. Dieser Wert wird über die SPI-Schnittstelle an einen Digital-Analog-Wandler übermittelt, welcher die Spannung für den Feedbackpin erzeugt.
+Wie in der gesamten Software sind alle Werte in Millivolt, $feedbackPin$ steht also für die Spannung am Feedbackpin in mV. Der Faktor 2 der Variable $regelwert$ wurde gewählt, um ein etwas schnelleres Regeln zu ermöglichen. Dieser Wert wird über die SPI-Schnittstelle an einen Digital-Analog-Wandler übermittelt, welcher die Spannung für den Feedbackpin erzeugt.
 
 
 
