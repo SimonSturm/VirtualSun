@@ -1,1 +1,13 @@
 \subsection{Bedienung}
+Die Bedienung wurde für eine übersichtliche und schnelle Anwendung einfach gehalten. Auf der Vorderseite hat es drei Taster und ein Vierzeiliges LCD-Display mit je 16 Charakter für die visuelle Darstellung. Die Taster sind jeweils Aktiv High am Mikrocontroller geschaltet mittels einem Taster-Pull-Up-Schaltkreis \ref{fig:SwitchPullUp_Software}. Der Pull-Up Widerstand ist $10k\Omega$, der mit einem Taster auf Erde verbunden wird.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.15\textwidth]{Taster.jpg}
+	\caption{Taster-Pull-Up-Schaltkreis}
+	\label{fig:SwitchPullUp_Software}
+\end{figure}
+
+Die Taster wurden mit einer Softwarelösung entprellt, ansonsten konnte keine genaue Einstellung der Bestrahlungsstärke erreicht werden, da die Feder im Taster beim drücken ein undeutliches Signal erzeugt und so ein exaktes und regelmässiges Zählen unmöglich macht. Wird ein Taster betätigt wird der Widerstand und der Pin des Mikrokontrollers auf Masse verbunden und am Mikrokontroller entsteht ein Low-Zustand, also eine logische Null. Der Zustand wird dann mit der Software ausgelesen.
+\newline
+Das Display ist von MIDAS und ist die visuelle Schnittstelle zum Benutzer.
