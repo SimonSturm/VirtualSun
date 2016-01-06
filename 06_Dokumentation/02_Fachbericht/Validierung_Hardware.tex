@@ -9,4 +9,11 @@ Bei der Strommessung sind es sämtliche Widerstände, die beiden Operationsverst
 
 In den Tests funktionierten die einzelnen Schaltungsteile. Das Zusammenspiel mit der restlichen Schaltung verursacht jedoch vor allem bei der Strommessung noch grössere Probleme, sodass dort weitere Zeit zur Fehlersuche investiert werden müsste.
 
-\subsubsection{Regler}
+\subsubsection{Regler}\label{subsec:ValRegler}
+
+Sektion Sturm
+
+\paragraph{Bei der Software müssten für eine korrekte Funktion folgende Verbesserungen vorgenommen werden:}
+\begin{itemize}
+	\item Am Ausgang des Operationsverstärkers für die Strommessung (siehe Abbildung \ref{fig:Messschaltung_I}, dort als $messI$ bezeichnet) ist die Spannung zum Teil in einem undefinierten Zustand. Es wird vermutet, dass diese Störung von der ebenfalls auf dieser Platine erzeugten 5V-Hilfsspannung kommen. Bei Tests mit externer Spannungsspeisung konnten diese Fehler nicht nachvollzogen werden.
+\end{itemize}

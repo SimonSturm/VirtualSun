@@ -14,6 +14,12 @@ Nun wird die Vergleichsfunktion überprüft. Falls die Istspannung $istU$ gering
 Gemäss Formel (\ref{eq:feedbackpin}) kann nun der Wert überprüft werden, der am Ausgang des Digital-Analog-Wand\-lers anliegt. Dieser Wert wird mittels SPI vom Mikrocontroller zum Digital-Analog-Wand\-ler übertragen. Dieser Schritt testet lediglich die korrekte Funktion des SPI Kanals.
 
 \paragraph{Ein- und Ausgabe:}
-Die Ein- und Ausgabeelemente können im laufenden Betrieb geprüft werden. Auf dem Bildschirm werden die Werte regelmässig aktualisiert, die Tasten der Bestrahlungsstärke verhalten sich bei kurzen und langen Betätigungen wie gewünscht und der Modus kann mit dem entsprechenden Taster geändert werden. 
+Die Ein- und Ausgabeelemente können im laufenden Betrieb geprüft werden. Auf dem Bildschirm werden die Werte regelmässig aktualisiert, die Tasten der Bestrahlungsstärke verhalten sich bei kurzen und langen Betätigungen wie gewünscht und der Modus kann mit dem entsprechenden Taster geändert werden.
 
-Der Bildschirm hat Probleme mit dem Aufstarten, sodass dort weitere Zeit zur Fehlersuche aufgewendet werden müsste.
+\paragraph{Bei der Software müssten für eine korrekte Funktion folgende Verbesserungen vorgenommen werden:}
+\begin{itemize}
+	\item Der Digital-Analog-Wandler gibt am Ausgang immer 0V aus. Die korrekte Funktion des SPI Kanals müsste überprüft werden.
+	\item Auf dem Bildschirm treten oft Anzeigefehler auf. Diese können lediglich mit zum Teil mehrmaligem Neustart des Arduinos behoben werden. Die Aufstartroutine des Bildschirms müsste also überprüft werden.
+	\item Die Taster reagieren nicht auf Betätigung.
+	\item Sowohl Bildschirm als auch Taster haben auf Steckbrettern bereits funktioniert, dadurch kann angenommen werden dass die Codebasis in Ordnung ist.
+\end{itemize}
