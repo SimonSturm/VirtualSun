@@ -11,6 +11,6 @@ Für die Auswahl des Mikrocontrollers waren folgende Punkte entscheidend:
 	\item Eine Versorgungsspannung von 5V sollte zulässig sein, damit für den Mikrocontroller keine eigene Spannung erzeugt werden muss.
 \end{itemize}
 
-Diesen Bedingungen entspricht der ATmega328P von Atmel. Um den Aufwand für den Aufbau des Mikrocontrollers zu verringern wurde ein Arduino Uno Board gewählt. Der Arduino Uno besitzt bereits einen Oszillator für 16MHz und eine USB-Schnittstelle zur einfachen Programmierung, ausserdem sind sämtliche Pins bereits nach aussen auf Buchsenleisten geführt.
+Diesen Bedingungen entspricht der ATmega328P von Atmel \cite{db_atmega}. Um den Aufwand für den Aufbau des Mikrocontrollers zu verringern wurde ein Arduino Uno Board gewählt. Der Arduino Uno besitzt bereits einen Oszillator für 16MHz und eine USB-Schnittstelle zur einfachen Programmierung, ausserdem sind sämtliche Pins bereits nach aussen auf Buchsenleisten geführt.
 
 Die Analog-Digital-Wandler des ATmega328P kennen zwei Betriebsmodis: Die anliegende Spannung kann mit einer internen oder einer externen Spannungsreferenz verglichen werden. Die externe Spannungsreferenz bietet den Vorteil, dass deren Genauigkeit bekannt und höher als die interne ist. Ausserdem kann bei der externen Spannungsreferenz eine höhere Spannung, in unserem Fall 5V (intern: 1.1V), gewählt werden, was die Messung unempfindlicher gegenüber Störungen macht.
