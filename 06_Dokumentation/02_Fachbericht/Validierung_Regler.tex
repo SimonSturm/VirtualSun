@@ -9,7 +9,7 @@ Bei der Strommessung sind es sämtliche Widerstände, die beiden Operationsverst
 
 In den Tests funktionierten die einzelnen Schaltungsteile. Das Zusammenspiel mit der restlichen Schaltung verursacht jedoch vor allem bei der Strommessung noch grössere Probleme, sodass dort weitere Zeit zur Fehlersuche investiert werden müsste.
 
-\subsubsection{Regler}\label{subsec:ValRegler}
+\subsubsection{Regler}
 
 Zur Validierung des Reglers wurde der Ausgangsstrom sowie die Ausgangsspannung bei maximaler Aussteuerung und variablem Ausgangs-Widerstand gemessen, sowie die Kennlinie bei einem fixen Lastwiderstand in Abhängigkeit der Bestrahlung:
 
@@ -24,7 +24,5 @@ Der Kurzschlussstrom konnte nicht gemessen werden, da der Regler sich zu stark e
 Auch wurde die Effizienz des Reglers, sowie der Rippel gemessen.
 Bei der Messung der Rippelspannung wurde gestgestellt das diese im Bereich 2.5-1.3V Feedbackspannung mehr als 5\% beträgt. Dieser Bereich entspricht ca. 0-55\% Bestrahlung. Um dies zu korrigieren gibt es mehrere Möglichkeiten: man kann einen grösseren Ausgangskondensator verwenden oder die Spulengrössen verändern. Es ist zudem nach anzumerken das in dieser Messchaltung kein zusätzliches Ausgangsfilter verwendet wurde (zu sehen in Grafik \ref{fig::fig::LTSchemata}), welches den Rippel der Ausgangsspannung auch verbessern würde.
 
-\paragraph{Bei der Software müssten für eine korrekte Funktion folgende Verbesserungen vorgenommen werden:}
-\begin{itemize}
-	\item Am Ausgang des Operationsverstärkers für die Strommessung (siehe Abbildung \ref{fig:Messschaltung_I}, dort als $messI$ bezeichnet) ist die Spannung zum Teil in einem undefinierten Zustand. Es wird vermutet, dass diese Störung von der ebenfalls auf dieser Platine erzeugten 5V-Hilfsspannung kommen. Bei Tests mit externer Spannungsspeisung konnten diese Fehler nicht nachvollzogen werden.
-\end{itemize}
+
+%Zur Validierung des Reglers wurden die Ausgangskennlinie bei maximaler Bestrahlung in Abhängigkeit des Lastwiderstandes aufgenommen. Desweiteren wurde diese Kennlinie auch bei der minimalen Bestrahlung gemessen, um zu verifizieren ob der Strom proportional zur Bestrahlung abnimmt. Weiter wurde das Verhältnis Ausgang:Eingang gemessen, um die Effizienz des reglers zu bestimmen. Auch wurde der Rippel des Regler-Ausganges bestimmt.
