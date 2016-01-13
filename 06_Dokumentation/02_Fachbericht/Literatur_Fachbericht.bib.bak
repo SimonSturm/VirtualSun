@@ -12,6 +12,18 @@
   Timestamp                = {2015.11.23}
 }
 
+@Electronic{LTAppnote,
+  Title                    = {LT1074/LT1076 Design Manual},
+  Author                   = {Carl Nelson},
+  Month                    = {September},
+  Organization             = {Linear Technology},
+  Url                      = {http://cds.linear.com/docs/en/application-note/an44fa.pdf},
+  Year                     = {1991},
+
+  Owner                    = {Simon Sturm},
+  Timestamp                = {2016.01.13}
+}
+
 @Book{photovoltaik_engineering,
   Title                    = {Photovoltaik Engineering},
   Author                   = {Andreas Wagner},
@@ -20,6 +32,14 @@
 
   Owner                    = {Yanick},
   Timestamp                = {2015.11.23}
+}
+
+@Electronic{LTDatasheet,
+  Title                    = {LT1074/LT1076 Step-Down Switching Regulator Datasheet},
+  Url                      = {http://cds.linear.com/docs/en/datasheet/1074fds.pdf},
+
+  Owner                    = {Simon Sturm},
+  Timestamp                = {2016.01.13}
 }
 
 @Electronic{db_atmega,
