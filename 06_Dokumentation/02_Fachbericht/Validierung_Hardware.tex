@@ -15,7 +15,7 @@ Zur Validierung des Reglers wurde der Ausgangsstrom sowie die Ausgangsspannung b
 
 Die vom Auftraggeber gestellte Bedingung an ein effizientes Gerät konnte erfüllt werden. Die Verluste sind deutlich geringer als bei Linearreglern mit gleicher Funktion. Abbildung \ref{fig:Wirkungsgrad} zeigt den Wirkungsgrad als Funktion der Ausgangsspannung. Dabei wurden die Messungen bei 20$\Omega$, 6$\Omega$ und 3$\Omega$ durchgeführt. Der seltsame Verlauf der Kennlinie bei 3$\Omega$ rührt daher, dass die Versorgungsspannung der Spannungsquelle zu testzwecken zusammengebrochen ist.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 		\includegraphics[width=1.00\textwidth]{EffizienzMessung.png}
 	\caption{Der Wirkungsgrad des Schaltreglers als Funktion der Ausgangsleistung.}
@@ -25,14 +25,14 @@ Die vom Auftraggeber gestellte Bedingung an ein effizientes Gerät konnte erfül
 Ebenfalls wichtig ist die Messung der Rippelspannung am Ausgang. Abbildung \ref{fig:RippelMessung} zeigt den prozentualen Rippel in Abhängigkeit der Ausgangsleistung. Wie auch beim Wirkungsgrad wurden diese Messungen für 20$\Omega$, 6$\Omega$ und 3$\Omega$ durchgeführt. \\
 Der Rippel liegt im niedrigen Leistungsbereich über den vom Auftraggeber geforderten 5\%. Um dies zu korrigieren gibt es mehrere Möglichkeiten: Man kann einen grösseren Ausgangskondensator verwenden oder die Spulengrösse verändern. Es ist zudem noch anzumerken, das in dieser Regelschaltung kein zusätzliches Ausgangsfilter verwendet wurde (zu sehen in Grafik \ref{fig::LTSchemata}), welches den Rippel der Ausgangsspannung auch verbessern würde. In diesem Bereich ist auch der Wirkungsgrad klein. Die Messreihen zur Verzifizierung dieser Daten findet sich im Anhang unter (siehe Messreihe im Anhang \ref{ValidMeas}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 		\includegraphics[width=1.00\textwidth]{RippelMessung.png}
-	\caption{Der prozentuale Ausgangsrippel als Funktion der Ausgangsleistung}
+	\caption{Der prozentuale Ausgangsrippel als Funktion der Ausgangsleistung.}
 	\label{fig:RippelMessung}
 \end{figure}
 
-
+\newpage
 \paragraph{Bei der Hardware müssten für eine korrekte Funktion folgende Verbesserungen vorgenommen werden:}
 \begin{itemize}
 	\item Am Ausgang des Operationsverstärkers für die Strommessung (siehe Abbildung \ref{fig:Messschaltung_I}, dort als $messI$ bezeichnet) ist die Spannung zum Teil in einem undefinierten Zustand. Es wird vermutet, dass diese Störung von der ebenfalls auf dieser Platine erzeugten 5V-Hilfsspannung kommen. Bei Tests mit externer Spannungsspeisung konnten diese Fehler nicht nachvollzogen werden.
