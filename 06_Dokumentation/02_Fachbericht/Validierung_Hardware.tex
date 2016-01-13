@@ -11,20 +11,27 @@ In den Tests funktionierten die einzelnen Schaltungsteile. Das Zusammenspiel mit
 
 \subsubsection{Regler}\label{subsec:ValRegler}
 
-Zur Validierung des Reglers wurde der Ausgangsstrom sowie die Ausgangsspannung bei maximaler Aussteuerung und variablem Ausgangs-Widerstand gemessen. Dabei kommt die Stromlimitierung nicht vom Schaltregler selbst, sondern von der zu testzwecken verwendeten Quelle. Ausserdem wurden Strom und Spannung im Verhältnis bei drei verschiedenen Lastwiderständen gemessen, siehe Abbildung \ref{fig::Reglermessung}. Die genauen Messreihen finden sich im Anhang unter \ref{ValidMeas}\colorbox{red}{BITTE ANHANG ERGÄNZEN} auf Seite \pageref{ValidMeas}.
+Zur Validierung des Reglers wurde der Ausgangsstrom sowie die Ausgangsspannung bei maximaler Aussteuerung und variablem Ausgangswiderstand gemessen. Dabei kommt die Stromlimitierung nicht vom Schaltregler selbst, sondern von der zu testzwecken verwendeten Quelle. Ausserdem wurden Strom und Spannung im Verhältnis bei drei verschiedenen Lastwiderständen gemessen. Die genauen Messreihen finden sich im Anhang unter \ref{ValidMeas} auf Seite \pageref{ValidMeas}. Der Kurzschlussstrom konnte nicht gemessen werden, da der Regler sich zu stark erwärmte und unbrauchbar wurde.
+
+Die vom Auftraggeber gestellte Bedingung an ein effizientes Gerät konnte erfüllt werden. Die Verluste sind deutlich geringer als bei Linearreglern mit gleicher Funktion. Abbildung \ref{fig:Wirkungsgrad} zeigt den Wirkungsgrad als Funktion der Ausgangsspannung. Dabei wurden die Messungen bei 20$\Omega$, 6$\Omega$ und 3$\Omega$ durchgeführt. Der seltsame Verlauf der Kennlinie bei 3$\Omega$ rührt daher, dass die Versorgungsspannung der Spannungsquelle zu testzwecken zusammengebrochen ist.
 
 \begin{figure}[h]
-\includegraphics[width=1.0\textwidth]{ReglerMessung.png}%
-\caption{Messung der Ausgangskennlinien graphisch dargestellt.}
-\label{fig::Reglermessung}
+	\centering
+		\includegraphics[width=1.00\textwidth]{EffizienzMessung.png}
+	\caption{Der Wirkungsgrad des Schaltreglers als Funktion der Ausgangsleistung.}
+	\label{fig:Wirkungsgrad}
 \end{figure}
 
-Der Kurzschlussstrom konnte nicht gemessen werden, da der Regler sich zu stark erwärmte und unbrauchbar wurde.
+Ebenfalls wichtig ist die Messung der Rippelspannung am Ausgang. Abbildung \ref{fig:RippelMessung} zeigt den prozentualen Rippel in Abhängigkeit der Ausgangsleistung. Wie auch beim Wirkungsgrad wurden diese Messungen für 20$\Omega$, 6$\Omega$ und 3$\Omega$ durchgeführt. \\
+Der Rippel liegt im niedrigen Leistungsbereich über den vom Auftraggeber geforderten 5\%. Um dies zu korrigieren gibt es mehrere Möglichkeiten: Man kann einen grösseren Ausgangskondensator verwenden oder die Spulengrösse verändern. Es ist zudem noch anzumerken, das in dieser Regelschaltung kein zusätzliches Ausgangsfilter verwendet wurde (zu sehen in Grafik \ref{fig::LTSchemata}), welches den Rippel der Ausgangsspannung auch verbessern würde. In diesem Bereich ist auch der Wirkungsgrad klein. Die Messreihen zur Verzifizierung dieser Daten findet sich im Anhang unter (siehe Messreihe im Anhang \ref{ValidMeas}).
 
-Auch wurde die Effizienz des Reglers sowie der Rippel gemessen.
-Bei der Messung der Rippelspannung wurde festgestellt, dass diese im Bereich 2.5-1.3V Feedbackspannung mehr als 5\% beträgt.
-%Dieser Bereich entspricht beinahe dem Kurzschlussfall, bei welchem auch weitere Probleme auftreten \todo{Richtig so? Das von dir war falsch ;)}. 
-Um dies zu korrigieren gibt es mehrere Möglichkeiten: Man kann einen grösseren Ausgangskondensator verwenden oder die Spulengrösse verändern. Es ist zudem noch anzumerken, das in dieser Messschaltung kein zusätzliches Ausgangsfilter verwendet wurde (zu sehen in Grafik \ref{fig::LTSchemata}), welches den Rippel der Ausgangsspannung auch verbessern würde. In diesem Bereich ist auch der Wirkungsgrad klein. Er beträgt ca. 50\% in diesem Bestrahlungsbereich, in den anderen Bereichen ca. 70-80\% (siehe Messreihe im Anhang \ref{ValidMeas}).
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{RippelMessung.png}
+	\caption{Der prozentuale Ausgangsrippel als Funktion der Ausgangsleistung}
+	\label{fig:RippelMessung}
+\end{figure}
+
 
 \paragraph{Bei der Hardware müssten für eine korrekte Funktion folgende Verbesserungen vorgenommen werden:}
 \begin{itemize}
